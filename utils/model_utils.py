@@ -121,7 +121,7 @@ def generate_step(
 
     def _step(y):
         nonlocal cache, repetition_context
-        logits, cache = model(y[None], cache=cache)
+        logits = model(y[None], cache=cache)
         logits = logits[:, -1, :]
 
         if repetition_penalty:
